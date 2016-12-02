@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Markdown parser service</title>
+</head>
+<body>
+<h3>
+    Markdown parser service.</h3>
+<p>
+    Converts markdown-style text to html.</p>
+<p>
+    Available endpoints listed below:</p>
+<p>
+    &nbsp;</p>
+<h3>
+    1) Sign in - authorizes user if credentials are valid</h3>
+<p>
+    <strong>Endpoint</strong>: /api/v1/signIn</p>
+<p>
+    <strong>Method</strong>: POST</p>
+<p>
+    <strong>Security header required</strong>: false</p>
+<p>
+    <strong>Body example</strong>: {&quot;email&quot;: &quot;test@test.com&quot;, &quot;password&quot;: &quot;pwd&quot;}</p>
+<p>
+    <strong>Response</strong>: 200 if everything is ok. Response headers contains security token key</p>
+<p>
+    <strong>Response security header example</strong>: Api-Token: dfcf8120-3152-4b0e-8451-17700fc9ed94</p>
+<p>
+    &nbsp;</p>
+<h3>
+    2) Sign up - creates user if possible</h3>
+<p>
+    <strong>Endpoint</strong>: /api/v1/signUp Method: POST</p>
+<p>
+    <strong>Security header required</strong>: false</p>
+<p>
+    <strong>Body example</strong>: {&quot;email&quot;: &quot;test@test.com&quot;, &quot;pasword&quot;: &quot;pwd&quot;}</p>
+<p>
+    <strong>Response</strong>: 201 if user successfully created, otherwise - bad request</p>
+<p>
+    &nbsp;</p>
+<h3>
+    3) Logout - removes user&#39;s auth token from the storage</h3>
+<p>
+    <strong>Endpoint</strong>: /api/v1/logout</p>
+<p>
+    <strong>Method</strong>: POST</p>
+<p>
+    <strong>Security header required</strong>: true</p>
+<p>
+    <strong>Body example</strong>: {}</p>
+<p>
+    <strong>Response</strong>: 200</p>
+<p>
+    &nbsp;</p>
+<h3>
+    4) Parse markdown - converts markdown to html</h3>
+<p>
+    <strong>Endpoint</strong>: /api/v1/parseMarkdown</p>
+<p>
+    <strong>Method</strong>: Post </p>
+<p>
+    <strong>Security header required</strong>: true</p>
+<p>
+    <strong>Body example</strong>: {&quot;source&quot;: &quot;#####Loremipsum\nDolorsitamet,consetetur**sad**ip* scing *elitr,sed[diam](http://mysite.com)nonumyeirmodtempor&quot;}</p>
+<p>
+    <strong>Response</strong>: 200 if parsed sucessfully. Bad request with cause otherwise</p>
+<p>
+    <strong>Response mime type</strong>: `text\html`</p>
+</body>
+</html>
